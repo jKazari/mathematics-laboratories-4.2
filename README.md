@@ -3,4 +3,9 @@ Repository of solutions to my **Databases** (`SQL`, `SAS`, `Oracle Database`,`PL
 
 ## The laboratory outline
 
-1. 
+1. Workspace preparation
+   - Creating Oracle account
+   - Creating Oracle APEX account
+   - Creating SAS account
+   - Installing Oracle SQL Developer / VSCode Extension
+2. SAS and SQL syntax basics, basic querying and creating tables
