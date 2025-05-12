@@ -30,7 +30,7 @@ PROC SQL;
 RUN;
 
 PROC SQL;
-    SELECT * FROM your_table;
+    SELECT * FROM sales;
 RUN;
 
 /* Task 2 */
