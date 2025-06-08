@@ -1,118 +1,119 @@
-drop table ksiazki cascade constraints;
-
-drop table czytelnicy cascade constraints;
-
-drop table wypozyczenia cascade constraints;
-
-/* Zad 1 */
-create table ksiazki(
-    id_ksiazki NUMBER(3) primary key,
-    tytul VARCHAR2(50),
-    autor VARCHAR2(50),
-    liczba_egzemplarzy NUMBER(3)
+-- Zadanie 1
+CREATE TABLE ksiazki (
+    id_ksiazki           NUMBER(3) PRIMARY KEY,
+    tytul                VARCHAR2(50),
+    autor                VARCHAR2(50),
+    liczba_egzemplarzy   NUMBER(3)
 );
 
-create table czytelnicy(
-    id_czytelnika NUMBER(3) primary key,
-    imie VARCHAR2(50),
-    nazwisko VARCHAR2(50),
-    data_zapisu DATE
+CREATE TABLE czytelnicy (
+    id_czytelnika   NUMBER(3) PRIMARY KEY,
+    imie            VARCHAR2(50),
+    nazwisko        VARCHAR2(50),
+    data_zapisu     DATE
 );
 
-create table wypozyczenia(
-    id_wypozyczenia NUMBER(3) primary key,
-    id_ksiazki NUMBER(3),
-    id_czytelnika NUMBER(3),
-    data_wypozyczenia DATE,
-    constraint wypozyczenia_ksiazki_fk foreign key (id_ksiazki)
-        references ksiazki (id_ksiazki) on delete set null,
-    constraint wypozyczenia_czytelnicy_fk foreign key (id_czytelnika)
-        references czytelnicy (id_czytelnika) on delete set null
+CREATE TABLE wypozyczenia (
+    id_wypozyczenia     NUMBER(3) PRIMARY KEY,
+    id_ksiazki          NUMBER(3),
+    id_czytelnika       NUMBER(3),
+    data_wypozyczenia   DATE,
+    CONSTRAINT wypozyczenia_ksiazki_fk 
+        FOREIGN KEY (id_ksiazki) REFERENCES ksiazki (id_ksiazki) ON DELETE SET NULL,
+    CONSTRAINT wypozyczenia_czytelnicy_fk 
+        FOREIGN KEY (id_czytelnika) REFERENCES czytelnicy (id_czytelnika) ON DELETE SET NULL
 );
 
 
-/* Zad 2 */
-insert all
-    into ksiazki values(100, 'Opowieść 1', 'XY ZZ', 10)
-    into ksiazki values(101, 'Opowieść 2', 'YY ZY', 7)
-    into ksiazki values(102, 'Opowieść 3', 'YZY XZY', 30)
-select * from dual;
+-- Zadanie 2
+INSERT ALL
+    INTO ksiazki VALUES (100, 'Opowieść 1', 'XY ZZ', 10)
+    INTO ksiazki VALUES (101, 'Opowieść 2', 'YY ZY', 7)
+    INTO ksiazki VALUES (102, 'Opowieść 3', 'YZY XZY', 30)
+SELECT * FROM dual;
+
+INSERT ALL
+    INTO czytelnicy VALUES (200, 'Jan', 'Kowalski', TO_DATE('05-05-2024', 'DD-MM-YYYY'))
+    INTO czytelnicy VALUES (201, 'Piotr', 'Adamczyk', TO_DATE('06-05-2024', 'DD-MM-YYYY'))
+    INTO czytelnicy VALUES (202, 'Tomasz', 'Rozenek', TO_DATE('07-05-2024', 'DD-MM-YYYY'))
+SELECT * FROM dual;
+
+INSERT ALL
+    INTO wypozyczenia VALUES (300, 100, 200, TO_DATE('15-05-2024', 'DD-MM-YYYY'))
+    INTO wypozyczenia VALUES (301, 100, 201, TO_DATE('17-05-2024', 'DD-MM-YYYY'))
+    INTO wypozyczenia VALUES (302, 101, 200, TO_DATE('23-05-2024', 'DD-MM-YYYY'))
+SELECT * FROM dual;
 
 
-insert all
-    into czytelnicy values(200, 'Jan', 'Kowalski', to_date('05-05-2024', 'DD-MM-YYYY'))
-    into czytelnicy values(201, 'Piotr', 'Adamczyk', to_date('06-05-2024', 'DD-MM-YYYY'))
-    into czytelnicy values(202, 'Tomasz', 'Rozenek', to_date('07-05-2024', 'DD-MM-YYYY'))
-select * from dual;
+-- Zadanie 3
+SELECT k.tytul, COUNT(w.id_wypozyczenia) AS liczba_wypozyczen
+FROM ksiazki k
+JOIN wypozyczenia w ON k.id_ksiazki = w.id_ksiazki
+GROUP BY k.tytul
+HAVING COUNT(w.id_wypozyczenia) >= 2;
 
 
-insert all
-    into wypozyczenia values(300, 100, 200, to_date('15-05-2024', 'DD-MM-YYYY'))
-    into wypozyczenia values(301, 100, 201, to_date('17-05-2024', 'DD-MM-YYYY'))
-    into wypozyczenia values(302, 101, 200, to_date('23-05-2024', 'DD-MM-YYYY'))
-select * from dual;
+-- Zadanie 4
+SELECT autor, COUNT(*) AS liczba_ksiazek
+FROM ksiazki
+GROUP BY autor
+ORDER BY liczba_ksiazek DESC;
 
 
-/* Zad 3 */
-select k.tytul, count(w.id_wypozyczenia) as liczba_wypozyczen
-from ksiazki k
-join wypozyczenia w on k.id_ksiazki = w.id_ksiazki
-group by k.tytul
-having count(w.id_wypozyczenia) >= 2;
+-- Zadanie 5
+CREATE OR REPLACE VIEW ksiazki_popularne AS
+SELECT * FROM ksiazki
+WHERE liczba_egzemplarzy > 2;
 
-/* Zad 4 */
-select autor, count() as liczba_ksiazek
-from ksiazki
-group by autor
-order by liczba_ksiazek desc;
+CREATE OR REPLACE VIEW ksiazki_popularne_spr AS
+SELECT * FROM ksiazki
+WHERE liczba_egzemplarzy > 2
+WITH CHECK OPTION CONSTRAINT ksiazki_popularne_ck;
 
-/* Zad 5 */
-create or replace view ksiazki_popularne as
-select * from ksiazki
-where liczba_egzemplarzy > 2;
+INSERT INTO ksiazki_popularne VALUES (10, 'Cień Wiatru', 'Zafón', 5);
+INSERT INTO ksiazki_popularne VALUES (11, 'Bezsenność', 'King', 1);       -- za mało egzemplarzy
+INSERT INTO ksiazki_popularne VALUES (12, 'Rok 1984', 'Orwell', 4);
+INSERT INTO ksiazki_popularne VALUES (13, 'Opowieść podręcznej', 'Atwood', 1); -- za mało egzemplarzy
 
+INSERT INTO ksiazki_popularne_spr VALUES (14, 'YTY', 'YZYT', 6);
+INSERT INTO ksiazki_popularne_spr VALUES (15, 'XYZ', 'YTXX', 1); -- nie spełnia warunku widoku
 
-create or replace view ksiazki_popularne_spr as
-select * from ksiazki
-where liczba_egzemplarzy > 2
-with check option constraint ksiazki_popularne_ck;
-
--- insert all nie działa z jakiegoś powodu
-insert into ksiazki_popularne values (10, 'Cień Wiatru', 'Zafón', 5);
-insert into ksiazki_popularne values (11, 'Bezsenność', 'King', 1);
-insert into ksiazki_popularne values (12, 'Rok 1984', 'Orwell', 4);
-insert into ksiazki_popularne values (13, 'Opowieść podręcznej', 'Atwood', 1);
+SELECT * FROM ksiazki;
+SELECT * FROM ksiazki_popularne;
+SELECT * FROM ksiazki_popularne_spr;
 
 
-insert into ksiazki_popularne_spr values (14, 'YTY', 'YZYT', 6);
-insert into ksiazki_popularne_spr values (15, 'XYZ', 'YTXX', 1); -- nie spełnia warunku widoku
+-- Zadanie 6
+CREATE OR REPLACE VIEW aktywni_czytelnicy AS
+SELECT 
+    r.imie, 
+    r.nazwisko, 
+    COUNT(w.id_wypozyczenia) AS liczba_wypozyczen
+FROM czytelnicy r
+JOIN wypozyczenia w ON r.id_czytelnika = w.id_czytelnika
+GROUP BY r.imie, r.nazwisko
+HAVING COUNT(w.id_wypozyczenia) > 3;
+
+SELECT * FROM aktywni_czytelnicy;
 
 
-select * from ksiazki;
-select * from ksiazki_popularne;
-select * from ksiazki_popularne_spr;
+-- Zadanie 7
+CREATE OR REPLACE VIEW wypozyczenia_czytelnikow AS
+SELECT 
+    r.imie, 
+    r.nazwisko, 
+    k.tytul, 
+    w.data_wypozyczenia AS wypozyczone_ksiazki
+FROM czytelnicy r
+JOIN wypozyczenia w ON r.id_czytelnika = w.id_czytelnika
+JOIN ksiazki k ON w.id_ksiazki = k.id_ksiazki;
 
+SELECT tytul 
+FROM wypozyczenia_czytelnikow
+WHERE imie = 'Jan' 
+  AND nazwisko = 'Kowalski' 
+  AND EXTRACT(YEAR FROM wypozyczone_ksiazki) = 2024;
 
-/* Zad 6 */
-create or replace view aktywni_czytelnicy as
-select r.imie, r.nazwisko, count(w.id_wypozyczenia) as liczba_wypozyczen
-from czytelnicy r
-join wypozyczenia w on r.id_czytelnika = w.id_czytelnika
-group by r.imie, r.nazwisko
-having count(w.id_wypozyczenia) > 3;
-
-
-select * from aktywni_czytelnicy;
-
-/* Zad 7 */
-create or replace view wypozyczenia_czytelnikow as
-select r.imie, r.nazwisko, k.tytul, w.data_wypozyczenia as wypozyczone_ksiazki
-from czytelnicy r
-join wypozyczenia w on r.id_czytelnika = w.id_czytelnika
-join ksiazki k on w.id_ksiazki = k.id_ksiazki;
-
-select tytul from wypozyczenia_czytelnikow
-where imie = 'Jan' and nazwisko = 'Kowalski' and year(data_wypozyczenia) = 2024;
-
-select count(w.data_wypozyczenia) from wypozyczenia czytelnikow
-where year(data_wypozyczenia) = 2025;
+SELECT COUNT(*) 
+FROM wypozyczenia
+WHERE EXTRACT(YEAR FROM data_wypozyczenia) = 2025;
