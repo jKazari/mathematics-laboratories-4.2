@@ -1,204 +1,103 @@
-CREATE TABLE COWORKING 
-    ( 
-     coworking_id    INTEGER  NOT NULL , 
-     startup_id      NUMBER (6)  NOT NULL , 
-     nr_sali         VARCHAR2 (20) , 
-     data_rezerwacji DATE 
-    ) 
-;
+-- Creating all the tables
+CREATE TABLE STUDENCI (
+    student_id NUMBER(6) NOT NULL,
+    nr_indeksu NUMBER(6),
+    imie       VARCHAR2(20),
+    nazwisko   VARCHAR2(20),
+    email      VARCHAR2(30),
+    telefon    VARCHAR2(9)
+);
 
-ALTER TABLE COWORKING 
-    ADD CONSTRAINT COWORKING_PK PRIMARY KEY ( coworking_id ) ;
+CREATE TABLE STARTUPY (
+    startup_id       NUMBER(6) NOT NULL,
+    nazwa            VARCHAR2(30) NOT NULL,
+    opis             VARCHAR2(500),
+    data_rozpoczecia DATE
+);
 
-CREATE TABLE CZLONKOWIE_STARTUPU 
-    ( 
-     czlonek_id NUMBER (6)  NOT NULL , 
-     student_id NUMBER (6)  NOT NULL , 
-     startup_id NUMBER (6)  NOT NULL , 
-     rola       VARCHAR2 (30) 
-    ) 
-;
+CREATE TABLE MENTORZY (
+    mentor_id     INTEGER NOT NULL,
+    imie          VARCHAR2(20),
+    nazwisko      VARCHAR2(20),
+    specjalizacja VARCHAR2(20)
+);
 
-ALTER TABLE CZLONKOWIE_STARTUPU 
-    ADD CONSTRAINT CZLONKOWIE_STARTUPU_PK PRIMARY KEY ( czlonek_id ) ;
+CREATE TABLE WYDARZENIA (
+    wydarzenie_id NUMBER(6) NOT NULL,
+    nazwa         VARCHAR2(50),
+    data          DATE,
+    lokalizacja   VARCHAR2(30)
+);
 
-CREATE TABLE FINANSOWANIE 
-    ( 
-     finansowanie_id INTEGER  NOT NULL , 
-     startup_id      NUMBER (6)  NOT NULL , 
-     kwota           NUMBER (10,2) , 
-     data_przyznania DATE 
-    ) 
-;
+CREATE TABLE COWORKING (
+    coworking_id    INTEGER NOT NULL,
+    startup_id      NUMBER(6) NOT NULL,
+    nr_sali         VARCHAR2(20),
+    data_rezerwacji DATE
+);
 
-ALTER TABLE FINANSOWANIE 
-    ADD CONSTRAINT FINANSOWANIE_PK PRIMARY KEY ( finansowanie_id ) ;
+CREATE TABLE CZLONKOWIE_STARTUPU (
+    czlonek_id NUMBER(6) NOT NULL,
+    student_id NUMBER(6) NOT NULL,
+    startup_id NUMBER(6) NOT NULL,
+    rola       VARCHAR2(30)
+);
 
-CREATE TABLE MENTORING 
-    ( 
-     mentoring_id     NUMBER (6)  NOT NULL , 
-     startup_id       NUMBER (6)  NOT NULL , 
-     mentor_id        INTEGER  NOT NULL , 
-     data_rozpoczecia DATE 
-    ) 
-;
+CREATE TABLE FINANSOWANIE (
+    finansowanie_id INTEGER NOT NULL,
+    startup_id      NUMBER(6) NOT NULL,
+    kwota           NUMBER(10,2),
+    data_przyznania DATE
+);
 
-ALTER TABLE MENTORING 
-    ADD CONSTRAINT MENTORING_PK PRIMARY KEY ( mentoring_id ) ;
+CREATE TABLE MENTORING (
+    mentoring_id     NUMBER(6) NOT NULL,
+    startup_id       NUMBER(6) NOT NULL,
+    mentor_id        INTEGER NOT NULL,
+    data_rozpoczecia DATE
+);
 
-CREATE TABLE MENTORZY 
-    ( 
-     mentor_id     INTEGER  NOT NULL , 
-     imie          VARCHAR2 (20) , 
-     nazwisko      VARCHAR2 (20) , 
-     specjalizacja VARCHAR2 (20) 
-    ) 
-;
+CREATE TABLE UCZESTNICY_WYDARZEN (
+    uczestnik_id  NUMBER(6) NOT NULL,
+    wydarzenie_id NUMBER(6) NOT NULL,
+    student_id    NUMBER(6) NOT NULL
+);
 
-ALTER TABLE MENTORZY 
-    ADD CONSTRAINT MENTORZY_PK PRIMARY KEY ( mentor_id ) ;
 
-CREATE TABLE STARTUPY 
-    ( 
-     startup_id       NUMBER (6)  NOT NULL , 
-     nazwa            VARCHAR2 (30)  NOT NULL , 
-     opis             VARCHAR2 (500) , 
-     data_rozpoczecia DATE 
-    ) 
-;
-CREATE INDEX STARTUPY_UNIQUE_NAME ON STARTUPY 
-    ( 
-     nazwa ASC 
-    ) 
-;
+-- Adding primary keys, foreign keys and other constraints
+ALTER TABLE STUDENCI ADD CONSTRAINT STUDENCI_PK PRIMARY KEY (student_id);
+ALTER TABLE STARTUPY ADD CONSTRAINT STARTUPY_PK PRIMARY KEY (startup_id);
+ALTER TABLE MENTORZY ADD CONSTRAINT MENTORZY_PK PRIMARY KEY (mentor_id);
+ALTER TABLE WYDARZENIA ADD CONSTRAINT WYDARZENIA_PK PRIMARY KEY (wydarzenie_id);
+ALTER TABLE COWORKING ADD CONSTRAINT COWORKING_PK PRIMARY KEY (coworking_id);
+ALTER TABLE CZLONKOWIE_STARTUPU ADD CONSTRAINT CZLONKOWIE_STARTUPU_PK PRIMARY KEY (czlonek_id);
+ALTER TABLE FINANSOWANIE ADD CONSTRAINT FINANSOWANIE_PK PRIMARY KEY (finansowanie_id);
+ALTER TABLE MENTORING ADD CONSTRAINT MENTORING_PK PRIMARY KEY (mentoring_id);
+ALTER TABLE UCZESTNICY_WYDARZEN ADD CONSTRAINT UCZESTNICY_WYDARZEN_PK PRIMARY KEY (uczestnik_id);
 
-ALTER TABLE STARTUPY 
-    ADD CONSTRAINT STARTUPY_PK PRIMARY KEY ( startup_id ) ;
+ALTER TABLE STUDENCI ADD CONSTRAINT STUDENCI_UNIQUE UNIQUE (nr_indeksu, email, telefon);
+CREATE INDEX STARTUPY_UNIQUE_NAME ON STARTUPY (nazwa ASC);
 
-CREATE TABLE STUDENCI 
-    ( 
-     student_id NUMBER (6)  NOT NULL , 
-     nr_indeksu NUMBER (6) , 
-     imie       VARCHAR2 (20) , 
-     nazwisko   VARCHAR2 (20) , 
-     email      VARCHAR2 (30) , 
-     telefon    VARCHAR2 (9) 
-    ) 
-;
+ALTER TABLE COWORKING ADD CONSTRAINT COWORKING_STARTUPY_FK
+    FOREIGN KEY (startup_id) REFERENCES STARTUPY(startup_id);
 
-ALTER TABLE STUDENCI 
-    ADD CONSTRAINT STUDENCI_PK PRIMARY KEY ( student_id ) ;
+ALTER TABLE CZLONKOWIE_STARTUPU ADD CONSTRAINT CZLONKOWIE_STARTUPU_STARTUPY_FK
+    FOREIGN KEY (startup_id) REFERENCES STARTUPY(startup_id);
 
-ALTER TABLE STUDENCI 
-    ADD CONSTRAINT STUDENCI__UNQUE UNIQUE ( nr_indeksu , email , telefon ) ;
+ALTER TABLE CZLONKOWIE_STARTUPU ADD CONSTRAINT CZLONKOWIE_STARTUPU_STUDENCI_FK
+    FOREIGN KEY (student_id) REFERENCES STUDENCI(student_id);
 
-CREATE TABLE UCZESTNICY_WYDARZEN 
-    ( 
-     uczestnik_id  NUMBER (6)  NOT NULL , 
-     wydarzenie_id NUMBER (6)  NOT NULL , 
-     student_id    NUMBER (6)  NOT NULL 
-    ) 
-;
+ALTER TABLE FINANSOWANIE ADD CONSTRAINT FINANSOWANIE_STARTUPY_FK
+    FOREIGN KEY (startup_id) REFERENCES STARTUPY(startup_id);
 
-ALTER TABLE UCZESTNICY_WYDARZEN 
-    ADD CONSTRAINT UCZESTNICY_WYDARZEN_PK PRIMARY KEY ( uczestnik_id ) ;
+ALTER TABLE MENTORING ADD CONSTRAINT MENTORING_MENTORZY_FK
+    FOREIGN KEY (mentor_id) REFERENCES MENTORZY(mentor_id);
 
-CREATE TABLE WYDARZENIA 
-    ( 
-     wydarzenie_id NUMBER (6)  NOT NULL , 
-     nazwa         VARCHAR2 (50) , 
-     data          DATE , 
-     lokalizacja   VARCHAR2 (30) 
-    ) 
-;
+ALTER TABLE MENTORING ADD CONSTRAINT MENTORING_STARTUPY_FK
+    FOREIGN KEY (startup_id) REFERENCES STARTUPY(startup_id);
 
-ALTER TABLE WYDARZENIA 
-    ADD CONSTRAINT WYDARZENIA_PK PRIMARY KEY ( wydarzenie_id ) ;
+ALTER TABLE UCZESTNICY_WYDARZEN ADD CONSTRAINT UCZESTNICY_WYDARZEN_STUDENCI_FK
+    FOREIGN KEY (student_id) REFERENCES STUDENCI(student_id);
 
-ALTER TABLE COWORKING 
-    ADD CONSTRAINT COWORKING_STARTUPY_FK FOREIGN KEY 
-    ( 
-     startup_id
-    ) 
-    REFERENCES STARTUPY 
-    ( 
-     startup_id
-    ) 
-;
-
-ALTER TABLE CZLONKOWIE_STARTUPU 
-    ADD CONSTRAINT CZLONKOWIE_STARTUPU_STARTUPY_FK FOREIGN KEY 
-    ( 
-     startup_id
-    ) 
-    REFERENCES STARTUPY 
-    ( 
-     startup_id
-    ) 
-;
-
-ALTER TABLE CZLONKOWIE_STARTUPU 
-    ADD CONSTRAINT CZLONKOWIE_STARTUPU_STUDENCI_FK FOREIGN KEY 
-    ( 
-     student_id
-    ) 
-    REFERENCES STUDENCI 
-    ( 
-     student_id
-    ) 
-;
-
-ALTER TABLE FINANSOWANIE 
-    ADD CONSTRAINT FINANSOWANIE_STARTUPY_FK FOREIGN KEY 
-    ( 
-     startup_id
-    ) 
-    REFERENCES STARTUPY 
-    ( 
-     startup_id
-    ) 
-;
-
-ALTER TABLE MENTORING 
-    ADD CONSTRAINT MENTORING_MENTORZY_FK FOREIGN KEY 
-    ( 
-     mentor_id
-    ) 
-    REFERENCES MENTORZY 
-    ( 
-     mentor_id
-    ) 
-;
-
-ALTER TABLE MENTORING 
-    ADD CONSTRAINT MENTORING_STARTUPY_FK FOREIGN KEY 
-    ( 
-     startup_id
-    ) 
-    REFERENCES STARTUPY 
-    ( 
-     startup_id
-    ) 
-;
-
-ALTER TABLE UCZESTNICY_WYDARZEN 
-    ADD CONSTRAINT UCZESTNICY_WYDARZEN_STUDENCI_FK FOREIGN KEY 
-    ( 
-     student_id
-    ) 
-    REFERENCES STUDENCI 
-    ( 
-     student_id
-    ) 
-;
-
-ALTER TABLE UCZESTNICY_WYDARZEN 
-    ADD CONSTRAINT UCZESTNICY_WYDARZEN_WYDARZENIA_FK FOREIGN KEY 
-    ( 
-     wydarzenie_id
-    ) 
-    REFERENCES WYDARZENIA 
-    ( 
-     wydarzenie_id
-    ) 
-;
+ALTER TABLE UCZESTNICY_WYDARZEN ADD CONSTRAINT UCZESTNICY_WYDARZEN_WYDARZENIA_FK
+    FOREIGN KEY (wydarzenie_id) REFERENCES WYDARZENIA(wydarzenie_id);
