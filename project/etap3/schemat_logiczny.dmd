@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Startup_projekt" id="2DDAB04D-EADA-6D39-06A0-C9EC766E0E4D" version="3.5">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 17:55:01 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>2DDAB04D-EADA-6D39-06A0-C9EC766E0E4D</designId>
+</OSDM_Design>

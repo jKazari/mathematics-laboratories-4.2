@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BEBF0993-B970-F1BF-529E-6B9685A136E8" name="WYDARZENIA">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:57:22 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="wydarzenie_id" id="27A8268F-BE5B-B120-153E-D505922E0DC6">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:57:47 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazwa" id="7B5BA925-DEB8-A507-5B0F-0D7EC2A6A018">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:58:27 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="data" id="E9CFA3BB-9C16-71EB-FCCA-DFBECBE31A7C">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:58:27 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="lokalizacja" id="48D0081A-913F-3965-4131-B07A74DC98BA">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:58:27 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3C8CF7FF-0BD8-18A1-CA1D-84C384BE9E81" name="WYDARZENIA_PK">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:57:47 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="27A8268F-BE5B-B120-153E-D505922E0DC6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

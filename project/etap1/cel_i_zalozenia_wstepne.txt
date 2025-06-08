@@ -1,0 +1,9 @@
+Celem projektu jest zaprojektowanie i implementacja bazy danych, wspomagającej zarządzanie organizacji
+"Student Tech Hub", która pomaga studentom w tworzeniu i rozwijaniu start-upów.
+
+Założenia wstępne:
+1. Organizacja wspiera zespoły poprzez przydzielanie mentorów czy przestrzeni coworkingowej.
+2. Każdy start-up może składać się z jednego lub wielu studentów i ma przydzielonego dokładnie jednego mentora.
+3. Finansowania projektów muszą być rejestrowane w systemie.
+4. Baza danych, umożliwia rejestracje wydarzeń.
+5. System umożliwia łatwe wyszukiwanie danych.

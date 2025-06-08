@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="A3F8F74D-DAD6-52DE-95D5-DCF219D6BDBE" mainViewID="EDEE975C-74AA-E0D8-BEF1-996AE172B270">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 17:55:01 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

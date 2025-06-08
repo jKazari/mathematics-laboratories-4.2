@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A29A3F16-E950-E0F7-BCCB-21685C94452F" name="MENTORING">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:38:59 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="mentoring_id" id="8FB41CA7-28C1-0D27-385F-0138CA34AC23">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:39:50 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="startup_id" id="ED84EE94-4F84-13F5-60CC-37FDAB7EF8A3">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:39:53 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="84323017-535E-A092-8DCF-0051C7393F88" referredColumn="34A1C4CA-7ECC-4EEB-D186-DE48A42C14A9"/>
+</associations>
+</Column>
+<Column name="mentor_id" id="AA0AD8F5-95DC-FB99-3D64-182014F32F56">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:43:41 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7A17D1F3-17FB-017A-CCDD-0F9C69AA8CE2" referredColumn="F53DF5E8-3B34-58D2-B5F9-818AC21FF0F3"/>
+</associations>
+</Column>
+<Column name="data_rozpoczecia" id="9DF9B662-A99C-67D6-E9E5-A0F009760467">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:39:50 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BC9293DC-EB09-D8D8-D502-F7717A82523B" name="MENTORING_PK">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:39:50 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8FB41CA7-28C1-0D27-385F-0138CA34AC23"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DAFB4506-5661-FBD1-ED20-1F53C8DB75E7" name="MENTORING_STARTUPY_FK">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:39:53 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ED84EE94-4F84-13F5-60CC-37FDAB7EF8A3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B1B56617-6337-89C7-4882-211AAC6938F8" name="MENTORING_MENTORZY_FK">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:43:41 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AA0AD8F5-95DC-FB99-3D64-182014F32F56"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

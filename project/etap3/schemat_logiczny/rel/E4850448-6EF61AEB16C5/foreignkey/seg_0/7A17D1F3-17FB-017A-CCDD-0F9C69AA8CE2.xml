@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="7A17D1F3-17FB-017A-CCDD-0F9C69AA8CE2" containerWithKeyObject="A29A3F16-E950-E0F7-BCCB-21685C94452F" localFKIndex="B1B56617-6337-89C7-4882-211AAC6938F8" name="MENTORING_MENTORZY_FK">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:43:41 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<referredTableLongName>MENTORZY</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>6B005720-A8B0-9849-4A98-A94D280B0AA6</referredTableID>
+<keyObject>173B85A7-3E0E-F2F4-57E4-D31BE2930C11</keyObject>
+<referredKeyID>173B85A7-3E0E-F2F4-57E4-D31BE2930C11</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>mentor_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

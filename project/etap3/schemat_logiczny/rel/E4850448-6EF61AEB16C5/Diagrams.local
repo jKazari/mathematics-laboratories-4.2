@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="main_view" objectID="B52D8DBE-9445-9956-BEE9-01F62A091180" name="Startuo" visible="true"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

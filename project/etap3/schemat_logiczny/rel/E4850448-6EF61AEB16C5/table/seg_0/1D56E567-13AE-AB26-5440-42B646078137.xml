@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1D56E567-13AE-AB26-5440-42B646078137" name="FINANSOWANIE">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:31:27 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="finansowanie_id" id="A4E27908-DF84-5451-83AC-060FA1641744">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:33:48 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="startup_id" id="4BEB7C4E-1F37-E31D-E454-6ED509E7E802">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:34:13 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="716CC67F-54C6-C9F4-E3AE-18EC0BCF5FD0" referredColumn="34A1C4CA-7ECC-4EEB-D186-DE48A42C14A9"/>
+</associations>
+</Column>
+<Column name="kwota" id="E9884D7C-09C9-C01A-FB08-F0972E199F83">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:33:48 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="data_przyznania" id="535D4D38-0768-5221-A615-6587EE341BD0">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:34:06 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4EF53901-F4A1-0A8E-AAF6-BCFBAA11003E" name="FINANSOWANIE_PK">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:33:48 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A4E27908-DF84-5451-83AC-060FA1641744"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3E3D7643-40EA-4BC2-A5CB-0336C7F0B4B4" name="FINANSOWANIE_STARTUPY_FK">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:34:13 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4BEB7C4E-1F37-E31D-E454-6ED509E7E802"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

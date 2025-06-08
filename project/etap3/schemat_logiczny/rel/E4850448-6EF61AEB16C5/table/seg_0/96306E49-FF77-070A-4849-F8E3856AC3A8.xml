@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="96306E49-FF77-070A-4849-F8E3856AC3A8" name="UCZESTNICY_WYDARZEN">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:58:32 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="uczestnik_id" id="5999962D-643F-5CCF-443E-FFBB710A10AB">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:59:15 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="wydarzenie_id" id="78213A2E-3178-8983-7383-17353D10522F">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:59:34 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1C631C1B-03A3-4211-1BA1-694381DD0BB5" referredColumn="27A8268F-BE5B-B120-153E-D505922E0DC6"/>
+</associations>
+</Column>
+<Column name="student_id" id="BBC9BA74-1E38-DB6F-3C20-C5F8DFDE0DB6">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:59:21 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AEB17EDB-AEFF-E35D-AE74-16E8A478E45D" referredColumn="2FD33A31-E716-3A16-7F57-902803384908"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7BE15803-601D-0D6D-0E0C-2C9785FD902D" name="UCZESTNICY_WYDARZEN_PK">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:59:15 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5999962D-643F-5CCF-443E-FFBB710A10AB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C602CBD1-FABD-EF10-E597-57799BBA8875" name="UCZESTNICY_WYDARZEN_STUDENCI_FK">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:59:21 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BBC9BA74-1E38-DB6F-3C20-C5F8DFDE0DB6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7A98961B-CA60-16A9-5354-CF5890F46712" name="UCZESTNICY_WYDARZEN_WYDARZENIA_FK">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:59:34 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="78213A2E-3178-8983-7383-17353D10522F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

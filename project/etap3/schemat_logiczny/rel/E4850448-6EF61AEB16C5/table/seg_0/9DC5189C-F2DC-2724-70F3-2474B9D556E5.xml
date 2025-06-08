@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9DC5189C-F2DC-2724-70F3-2474B9D556E5" name="STUDENCI">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:51:29 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="student_id" id="2FD33A31-E716-3A16-7F57-902803384908">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:53:17 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nr_indeksu" id="FD0A1C1F-3271-2865-7A41-6EFDB7432EE9">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:53:17 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="imie" id="C7604F61-BDAF-C4D7-1236-28BFB860C6EC">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:53:17 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazwisko" id="51459E2E-02F4-18EA-641D-AB0B3A47DB3D">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:53:17 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="FD67D3CB-956B-1445-D8D2-AB1CC0079C54">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:53:17 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefon" id="EE69AF55-35E5-49E9-DEA2-9D82A1E4E019">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:53:17 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9</dataTypeSize>
+<ownDataTypeParameters>9,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9C69315D-FF99-5F6E-BADA-B5081C2E34C2" name="STUDENCI_PK">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:53:17 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2FD33A31-E716-3A16-7F57-902803384908"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9A477E3B-6651-6440-D4B1-48CAE8BCE09E" name="STUDENCI__UNQUE">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:56:55 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FD0A1C1F-3271-2865-7A41-6EFDB7432EE9"/>
+<colUsage columnID="FD67D3CB-956B-1445-D8D2-AB1CC0079C54"/>
+<colUsage columnID="EE69AF55-35E5-49E9-DEA2-9D82A1E4E019"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

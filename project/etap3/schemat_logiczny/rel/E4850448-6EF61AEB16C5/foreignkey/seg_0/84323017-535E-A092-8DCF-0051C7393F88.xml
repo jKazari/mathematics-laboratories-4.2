@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="84323017-535E-A092-8DCF-0051C7393F88" containerWithKeyObject="A29A3F16-E950-E0F7-BCCB-21685C94452F" localFKIndex="DAFB4506-5661-FBD1-ED20-1F53C8DB75E7" name="MENTORING_STARTUPY_FK">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:39:53 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<referredTableLongName>STARTUPY</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>6ABCAC16-222B-5749-F95A-05AB40F9FB66</referredTableID>
+<keyObject>67205BEA-7ABF-C9DF-B637-BFAFB3891418</keyObject>
+<referredKeyID>67205BEA-7ABF-C9DF-B637-BFAFB3891418</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>startup_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6ABCAC16-222B-5749-F95A-05AB40F9FB66" name="STARTUPY">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:22:35 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="startup_id" id="34A1C4CA-7ECC-4EEB-D186-DE48A42C14A9">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:24:42 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazwa" id="F9397C29-C927-B6D7-41BB-9B0AE3AE116A">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:28:27 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="opis" id="EE7538FF-C66C-6B13-D399-764F66FC24F5">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:28:27 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="data_rozpoczecia" id="DAA8016A-C524-6208-979D-99C39E750E01">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:29:12 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="67205BEA-7ABF-C9DF-B637-BFAFB3891418" name="STARTUPY_PK">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:24:42 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34A1C4CA-7ECC-4EEB-D186-DE48A42C14A9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6FDE62EC-5FAC-9083-F283-7CC9CEBEC195" name="STARTUPY_UNIQUE_NAME">
+<createdBy>kamat</createdBy>
+<createdTime>2025-06-06 18:31:12 UTC</createdTime>
+<ownerDesignName>Startup_projekt</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F9397C29-C927-B6D7-41BB-9B0AE3AE116A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
